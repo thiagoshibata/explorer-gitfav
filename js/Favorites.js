@@ -60,29 +60,56 @@ export class FavoritesView extends Favorites {
   }
 
   update() {
-    // this.removeAllTr()
+    this.removeAllTr()
 
-    this.entries.forEach((user) => {
-      const row = this.createRow()
+    console.log(this.entries.lenth)
 
-      row.querySelector(
-        ".user img"
-      ).src = `https://github.com/${user.login}.png`
-      row.querySelector(".user img").alt = `Imagem de ${user.name}`
-      row.querySelector(".user a").href = `https://github.com/${user.login}`
-      row.querySelector(".user p").textContent = user.name
-      row.querySelector(".user span").textContent = "/" + user.login
-      row.querySelector(".repositories").textContent = user.public_repos
-      row.querySelector(".followers").textContent = user.followers
-      row.querySelector(".remove").onclick = () => {
-        const isOk = confirm("Tem certeza que deseja deletar este usuário?")
-        if (isOk) {
-          this.delete(user)
+    if (this.entries.length === 0) {
+      const rowNoUser = this.createRowNoUser()
+      this.tbody.append(rowNoUser)
+    } else {
+      this.entries.forEach((user) => {
+        const row = this.createRow()
+
+        row.querySelector(
+          ".user img"
+        ).src = `https://github.com/${user.login}.png`
+        row.querySelector(".user img").alt = `Imagem de ${user.name}`
+        row.querySelector(".user a").href = `https://github.com/${user.login}`
+        row.querySelector(".user p").textContent = user.name
+        row.querySelector(".user span").textContent = "/" + user.login
+        row.querySelector(".repositories").textContent = user.public_repos
+        row.querySelector(".followers").textContent = user.followers
+        row.querySelector(".remove").onclick = () => {
+          const isOk = confirm("Tem certeza que deseja deletar este usuário?")
+          if (isOk) {
+            this.delete(user)
+          }
         }
-      }
 
-      this.tbody.append(row)
-    })
+        this.tbody.append(row)
+      })
+    }
+  }
+
+  createRowNoUser() {
+    const tr = document.createElement("tr")
+    tr.classList.add("tr-no-user")
+
+    tr.innerHTML = `
+      <tr>
+            <td colspan="4" rowspan="4">
+              <div class="no-user">
+                <img
+                  src="/assets/Estrela.svg"
+                  alt="ícone de uma estrela com uma expressão de surpresa"
+                />
+                <span>Nenhum favorito ainda</span>
+              </div>
+            </td>
+          </tr>
+    `
+    return tr
   }
 
   createRow() {

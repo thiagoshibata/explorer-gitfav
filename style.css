@@ -159,7 +159,7 @@ td .remove {
   height: 40rem;
 }
 
-.no-user, span {    
+.no-user, .no-user span {    
   display: flex;
   gap: 6rem;
   font-family: 'Roboto Mono', monospace;
