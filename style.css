@@ -12,7 +12,7 @@
   --border-table-color: hsla(191, 31%, 42%, 1);
 
   --ff-primary: "Roboto", sans-serif;
-  --text-color: #E1E1E6;
+  --text-color: #e1e1e6;
 
   --hue: 194;
   --primary-color: hsla(var(--hue), 72%, 13%, 1);
@@ -88,7 +88,8 @@ header {
 }
 
 .search button:hover {
-  filter: brightness(1.2);
+  color: #065e7c;
+  background: white;
 }
 
 .search button img {
@@ -99,7 +100,8 @@ header {
 table {
   width: 100%;
   border-collapse: collapse;
-  border-radius: 0.8rem;
+  border-radius: 1.2rem;
+  overflow: hidden;
 }
 
 table * {
@@ -159,11 +161,12 @@ td .remove {
   height: 40rem;
 }
 
-.no-user, .no-user span {    
+.no-user,
+.no-user span {
   display: flex;
   gap: 6rem;
-  font-family: 'Roboto Mono', monospace;
-  color: #4E5455;
+  font-family: "Roboto Mono", monospace;
+  color: #4e5455;
   font-size: 4rem;
   align-items: center;
   justify-content: center;
