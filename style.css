@@ -1,3 +1,4 @@
+/* reset default configs */
 * {
   margin: 0;
   padding: 0;
@@ -156,7 +157,7 @@ td .remove {
   cursor: pointer;
 }
 
-/* Nenhum Favorito na tabela */
+/* No user favorite */
 .tr-no-user {
   height: 40rem;
 }

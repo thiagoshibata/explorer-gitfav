@@ -50,6 +50,7 @@ export class FavoritesView extends Favorites {
     this.onadd()
   }
 
+  //method to check the button click and catch your value
   onadd() {
     const addButton = this.root.querySelector(".search button")
     addButton.onclick = () => {
@@ -92,6 +93,7 @@ export class FavoritesView extends Favorites {
     }
   }
 
+  // method to create a text when there is no user favorite
   createRowNoUser() {
     const tr = document.createElement("tr")
     tr.classList.add("tr-no-user")
@@ -101,7 +103,7 @@ export class FavoritesView extends Favorites {
             <td colspan="4" rowspan="4">
               <div class="no-user">
                 <img
-                  src="/assets/Estrela.svg"
+                  src="/assets/big-star.svg"
                   alt="ícone de uma estrela com uma expressão de surpresa"
                 />
                 <span>Nenhum favorito ainda</span>
@@ -112,6 +114,7 @@ export class FavoritesView extends Favorites {
     return tr
   }
 
+  // methor to created view user row
   createRow() {
     const tr = document.createElement("tr")
     tr.innerHTML = `
@@ -135,6 +138,7 @@ export class FavoritesView extends Favorites {
     return tr
   }
 
+  //methor to remove All rows users
   removeAllTr() {
     this.tbody.querySelectorAll("tr").forEach((tr) => {
       tr.remove()

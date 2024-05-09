@@ -1,3 +1,4 @@
+// module to receive user data from github
 export class GithubUser {
   static search(username) {
     const endpoint = `https://api.github.com/users/${username}`
